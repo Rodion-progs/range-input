@@ -1,28 +1,32 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <v-container>
+      <h1 class="title">Вы выбрали промежуток времени {{ range }}</h1>
+      <v-scale v-model="range" controls start="5-05-0120" end="5-05-2012"  />
+    </v-container>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
+import VScale from "./components/VScale.vue";
+import VContainer from '@/components/VContainer';
 export default {
   name: "App",
   components: {
-    HelloWorld,
+    VScale,
+    VContainer
   },
+  data() {
+    return {
+      range: null
+    }
+  }
 };
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.title {
+  margin-bottom: 80px;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
